@@ -1,6 +1,6 @@
 # mbusa2020-ML-project
 
-### Overview
+## Overview
 <b>&nbsp;</b>
 The main steps for this project is as follow, some details are discussed in following cells:
 1. data preprocessing/transformation
@@ -14,7 +14,7 @@ The main steps for this project is as follow, some details are discussed in foll
 5. error analysis / model selection
     - compare accuracy between models, explain the results and select a best model.
 
-### 1. Preprocessing
+## 1. Preprocessing
 #### Dataset summary
 * **train.txt**: information on which two authors id shares a link, there are some incorrect edges here but its up to the model to detect them after training as theres no way we could know at this stage.
 * **nodes.json**: attributes for each author (linked by author id)
@@ -46,10 +46,8 @@ The main steps for this project is as follow, some details are discussed in foll
 * should we link a node to itself? (does this provide information that really similar nodes should link together)
 * should pairs that are not linked (edge=0) be included, or just include pairs that shares an edge (edge=1), will this help the model to learn better what type of combinations should not share an edge?
 
-### 2. Training model
+## 2. Training model
 The model need to output probability of an edge being true, some models we can experiment with at the moment are (sklearn built in models):
-
-<b>&nbsp;</b>
 1. naive bayes (multinomial/gaussian). 
     - gaussian is used to compute conditional probability when predictors are continuous.
 2. logistic regression
@@ -62,9 +60,9 @@ some things to be aware of:
 - outputs of sklearn model, is it a probability, or just a class label that extra steps are required to find the probability.
 - is the model compatible with our attribute type (this can be something to talk about in error analysis)
 
-### 4. Evaluation
+## 4. Evaluation
 
-#### Evaluation metrics:
+### Evaluation metrics:
 1. accuracy, precision, etc..
 2. confusion table
 3. AUC
