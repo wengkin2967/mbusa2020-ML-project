@@ -34,8 +34,6 @@ The main steps for this project is as follow, some details are discussed in foll
 <b>&nbsp;</b>
 #### Transformation details
 * labelling of whether there is an edge between two authors can be obtained from train.txt. Use 1 when there is an edge, -1 otherwise
-
-<b>&nbsp;</b>
 * what features to include? (feature selection)
     1. years between first and last publish of author 1
     2. years between first and last publish of author 2
@@ -45,13 +43,10 @@ The main steps for this project is as follow, some details are discussed in foll
     5. number of venue shared between two nodes
         * (or use 1 or 0 to indicate whether both authors published at a venue for each venue)
     6. ...
-    
-<b>&nbsp;</b>
 * should we link a node to itself? (does this provide information that really similar nodes should link together)
 * should pairs that are not linked (edge=0) be included, or just include pairs that shares an edge (edge=1), will this help the model to learn better what type of combinations should not share an edge?
 
 ### 2. Training model
-<b>&nbsp;</b>
 The model need to output probability of an edge being true, some models we can experiment with at the moment are (sklearn built in models):
 
 <b>&nbsp;</b>
@@ -63,7 +58,6 @@ The model need to output probability of an edge being true, some models we can e
 5. ...
 
 <b>&nbsp;</b>
-
 some things to be aware of:
 - outputs of sklearn model, is it a probability, or just a class label that extra steps are required to find the probability.
 - is the model compatible with our attribute type (this can be something to talk about in error analysis)
