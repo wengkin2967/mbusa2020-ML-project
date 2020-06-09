@@ -67,7 +67,6 @@ some things to be aware of:
 2. confusion table
 3. AUC
 
-<b>&nbsp;</b>
 #### Benchmark
 - naive
 - majority
