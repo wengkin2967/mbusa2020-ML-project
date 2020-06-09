@@ -15,7 +15,6 @@ The main steps for this project is as follow, some details are discussed in foll
     - compare accuracy between models, explain the results and select a best model.
 
 ### 1. Preprocessing
-<b>&nbsp;</b>
 #### Dataset summary
 * **train.txt**: information on which two authors id shares a link, there are some incorrect edges here but its up to the model to detect them after training as theres no way we could know at this stage.
 * **nodes.json**: attributes for each author (linked by author id)
@@ -61,6 +60,7 @@ The model need to output probability of an edge being true, some models we can e
 2. logistic regression
 3. decision trees
 4. random forest (ensemble)
+5. ...
 
 <b>&nbsp;</b>
 
