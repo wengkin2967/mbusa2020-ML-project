@@ -1,6 +1,5 @@
 # mbusa2020-ML-project
-## Folder structure: 
-The src folder contains all code and datasets.
+### Folder structure: The src folder contains all code and datasets.
 <b>&nbsp;</b>
 ## Overview
 <b>&nbsp;</b>
