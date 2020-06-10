@@ -26,25 +26,29 @@ The main steps for this project is as follow, some details are discussed in foll
 * need to combine **edge information** from train.txt with **nodes information** from nodes.json to form a training set. 
     * the same transformation need to apply in testing phase
     * this requires us to have all author information in json (including the authors in test set), or new author information will be required
+* *train.txt* provides information on connected authoers, but it also tells us which pairs are not connected, this information should also be included so the model can also learn features of unconnected pairs.
+* This introduces a problem: **Unbalanced class** - There is a large number of source sink pairs that doesn't share a link, this would introduce bias in our models. A way to fix this is to perform **undersampling**, that is only include the same number of unconnected src-sink pairs as those that does. (refer to **stratified sampling**)
 
+   
 <b>&nbsp;</b>
-#### What is the table like?    
-- refer to sample-table.csv
 
-<b>&nbsp;</b>
 #### Transformation details
 * labelling of whether there is an edge between two authors can be obtained from train.txt. Use 1 when there is an edge, -1 otherwise
 * what features to include? (feature selection)
-    1. years between first and last publish of author 1
-    2. years between first and last publish of author 2
-    3. difference of 3 and 4 (will this contribute to multicolinearity)
-    4. number of terms shared between the two nodes 
-        * (or use 1 or 0 to indicate whether both authors used a same term for each term)
-    5. number of venue shared between two nodes
-        * (or use 1 or 0 to indicate whether both authors published at a venue for each venue)
-    6. ...
+    1. *src_first* - year since first publish author 1
+    2. *sink_first* - year since first publish author 2
+    3. *src_last* - year since last publish author 1 
+    4. *sink_last* - year since last publish author 2 
+    5. *first_diff* - years between first and last publish of author 1
+    6. *last_diff* - years between first and last publish of author 2
+    7. *common_keywords* - number of terms shared between the two nodes 
+    8. *common venue* - number of venue shared between two nodes    
+    ...
+* label: *edge* - 1 if src and sink share an edge, 0 otherwise
 * should we link a node to itself? (does this provide information that really similar nodes should link together)
-* should pairs that are not linked (edge=0) be included, or just include pairs that shares an edge (edge=1), will this help the model to learn better what type of combinations should not share an edge?
+* refer to reconstructed-table.csv
+
+
 
 ## 2. Training model
 The model need to output probability of an edge being true, some models we can experiment with at the moment are (sklearn built in models):
