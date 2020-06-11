@@ -58,11 +58,11 @@ Dataset summary
 
     10. *common_keywords*: number of terms shared between the two nodes 
 
-    11. *keyword_similarity*: number of common keywords / all keywords of two author
+    11. *keyword_similarity*: number of common keywords / all (union) keywords of two author
 
     12. *common_venue*: number of venue shared between two nodes    
 
-    13. *venue_similarity*: number of common venues / all venues of two author
+    13. *venue_similarity*: number of common venues / all (union) venues of two author
 
        
 
