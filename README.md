@@ -29,7 +29,7 @@ Dataset summary
 * need to combine **edge information** from train.txt with **nodes information** from nodes.json to form a training set. 
     * the same transformation need to apply in testing phase
     * this requires us to have all author information in json (including the authors in test set), or new author information will be required
-* *train.txt* provides information on connected authoers, but it also tells us which pairs are not connected, this information should also be included so the model can also learn features of unconnected pairs.
+* *train.txt* provides information on connected authors, but it also tells us which pairs are not connected, this information should also be included so the model can also learn features of unconnected pairs.
 * This introduces a problem: **Unbalanced class** - There is a large number of source sink pairs that doesn't share a link, this would introduce bias in our models. A way to fix this is to perform **undersampling**, that is only include the same number of unconnected src-sink pairs as those that does. (refer to **stratified sampling**)
 
 
