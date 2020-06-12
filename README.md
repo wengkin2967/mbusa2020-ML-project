@@ -9,30 +9,27 @@ The main steps for this project is as follow, some details are discussed in foll
 
 2. create models and train with **training set**
 
-3. for each model: 
+3. for each model:  
    3.1 hyperparameter tuning with **dev set**
    3.2 obtain accuracy from **dev set**
 
-4. model selection:
+4. model selection:  
    4.1 select model with best accuracy from **3.2**
    4.2 error analysis - compare and explain different models
 
-5. make predictions for test set to be submitted:
-
-   * **Option 1** (mentioned in the project specs)
-     5.1 use model from 4.1 to make predictions on test set and submit
-
-   * **Option 2** (could give us more advantage on kaggle)
-     5.1 use model from 4.1 with the tuned hyperparameter, retrain on full dataset "train + dev"
-         (this way the model can learn from more data)
+5. make predictions for test set to be submitted:  
+   * **Option 1** (mentioned in the project specs)  
+     5.1 use model from 4.1 to make predictions on test set and submit  
+  
+   * **Option 2** (could give us more advantage on kaggle)  
+     5.1 use model from 4.1 with the tuned hyperparameter, retrain on full dataset "train + dev"  
+           (this way the model can learn from more data)  
      5.2 make predictions on test set and submit
-
      https://stats.stackexchange.com/questions/11602/training-on-the-full-dataset-after-cross-validation
      https://www.kaggle.com/general/9831
 
 6. Report writting
 
-   - summary step 1-5
 
 ## 1. Preprocessing
 
