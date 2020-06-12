@@ -1,6 +1,4 @@
 # mbusa2020-ML-project
-### Folder structure: The src folder contains all code and datasets.
-<b>&nbsp;</b>
 
 ## Overview
 <b>&nbsp;</b>
@@ -8,14 +6,24 @@ The main steps for this project is as follow, some details are discussed in foll
 
 1. data preprocessing/transformation
 2. create models and train with **training set**
-3. hyperparameter tuning with **dev set**
-4. evaluation
-    - select evaluation metrics
-    - select benchmark models
-    - use **cross evaluation** as there is no seperate test data given
-    - if cross evaluation is too slow, try hold out.
-5. error analysis / model selection
-    - compare accuracy between models, explain the results and select a best model.
+3. for each model: 
+    3.1 hyperparameter tuning with **dev set**
+    3.2 obtain accuracy from **dev set**
+4. model selection:
+    4.1 select model with best accuracy from **3.2**
+    4.2 error analysis - compare and explain different models
+5. make predictions for test set to be submitted:
+    **Option 1** (mentioned in the project specs)
+        5.1 use model from 4.1 to make predictions on test set and submit
+    **Option 2** (could give us more advantage on kaggle)
+        5.1 use model from 4.1 with the tuned hyperparameter, retrain on full dataset "train + dev"
+            (this way the model can learn from more data)
+        5.2 make predictions on test set and submit
+        https://stats.stackexchange.com/questions/11602/training-on-the-full-dataset-after-cross-validation
+        https://www.kaggle.com/general/9831
+6. Report writting
+    - summary step 1-5
+    
 
 ## 1. Preprocessing
 Dataset summary
@@ -62,18 +70,13 @@ Dataset summary
 
     12. *common_venue*: number of venue shared between two nodes    
 
-    13. *venue_similarity*: number of common venues / all (union) venues of two author
+    13. *venue_similarity*: number of common venues / all (union) venues of two author  
 
-       
+    * class label: *edge* - 1 if src and sink share an edge, 0 otherwise
 
-* label: *edge* - 1 if src and sink share an edge, 0 otherwise
 
-* should we link a node to itself? (does this provide information that really similar nodes should link together)
 
-* refer to reconstructed-table.csv
-
-## 2. Training model
-The model need to output probability of an edge being true, some models we can experiment with at the moment are (sklearn built in models):
+## Models:
 1. naive bayes (multinomial/gaussian). 
     - gaussian is used to compute conditional probability when predictors are continuous.
 2. logistic regression
@@ -87,7 +90,7 @@ some things to be aware of:
 - outputs of sklearn model, is it a probability, or just a class label that extra steps are required to find the probability.
 - is the model compatible with our attribute type (this can be something to talk about in error analysis)
 
-## 4. Evaluation
+## Evaluation
 
 ### Evaluation metrics:
 1. accuracy, precision, etc..
@@ -95,10 +98,6 @@ some things to be aware of:
 3. AUC
 
 ### Benchmark:
-
 - naive
 - majority
 - decision stump
-
-<b>&nbsp;</b>
-*And finally compare results from training set (cross validation) with test set.
