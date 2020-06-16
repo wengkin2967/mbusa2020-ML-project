@@ -79,7 +79,11 @@ Dataset summary
 
   12. *common_venue*: number of venue shared between two nodes    
 
-  13. *venue_similarity*: number of common venues / all (union) venues of two author  
+  13. *venue_similarity*: number of common venues / all (union) venues of two author
+
+  14. *common_neighbours*: number of neighbours shared between two nodes
+
+  15. *neighbours_similarity*: number of common neighbours / all (union) neighbours of two authors
 
   * class label: *edge* - 1 if src and sink share an edge, 0 otherwise
 
